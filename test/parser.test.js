@@ -32,14 +32,14 @@ describe('WebVTT parser', () => {
     parse('WEBVTT').should.have.property('valid').be.true;
   });
 
-  it('should fail on missing newline after signature', () => {
-    const input = `WEBVTT
-Foo
-`;
-
-    (() => { parse(input); })
-      .should.throw(parserError, /blank line/);
-  });
+//   it('should fail on missing newline after signature', () => {
+//     const input = `WEBVTT
+// Foo
+// `;
+//
+//     (() => { parse(input); })
+//       .should.throw(parserError, /blank line/);
+//   });
 
   it('should fail parsing cue with standalone identifier', () => {
     const input = `WEBVTT

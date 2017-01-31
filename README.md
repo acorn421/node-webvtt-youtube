@@ -1,9 +1,10 @@
-
-# WebVTT parser and segmenter
+WebVTT parser and segmenter(Youtube Support)
+============================================
 
 Parse WebVTT files, segments and generates HLS playlists for them.
 
-## Usage
+Usage
+-----
 
 For a WebVTT file:
 
@@ -41,12 +42,7 @@ const segments = webvtt.hls.hlsSegment(input, segmentDuration, startOffset);
 
 Parses the WebVTT file and returns an object with `valid === true` if parsed correctly and an array of cues parsed.
 
-Each cue can have:
-* `identifier` - Id, if any of the cue
-* `start` - Start time of cue in seconds
-* `end` - End time of cue in seconds
-* `text` - Text of the subtitle
-* `styles` - If any of the cue
+Each cue can have:* `identifier` - Id, if any of the cue* `start` - Start time of cue in seconds* `end` - End time of cue in seconds* `text` - Text of the subtitle* `styles` - If any of the cue
 
 If the WebVTT file is invalid, the parser will throw a `ParserError` exception. So for safety, calls to `parse` should be in `try catch`.
 
@@ -92,8 +88,8 @@ For the above example we'd get:
 
 Segments a subtitle according to how it should be segmented for HLS subtitles.
 
-* Does a one pass of the cues for segmenting, this might have been a good idea or bad, only time will tell
-* The One and Only Source of Truth is Apple's `mediasubtitlesegmenter` CLI
+-	Does a one pass of the cues for segmenting, this might have been a good idea or bad, only time will tell
+-	The One and Only Source of Truth is Apple's `mediasubtitlesegmenter` CLI
 
 For the above example:
 
@@ -152,7 +148,8 @@ Creates a list of HLS segments for the subtitles, returning an array of them wit
 ]
 ```
 
-## CLI
+CLI
+---
 
 For segmenting a WebVTT file quickly, you can use the included CLI tool:
 
@@ -175,7 +172,8 @@ $ ./webvtt-segment.js -v --target-duration 10 -o ./subs subs.vtt
     -s, --silent                      No output
 ```
 
-## Development
+Development
+-----------
 
 This has been written with TDD so we've got a good coverage of the features.
 
@@ -188,22 +186,24 @@ mocha -w
 <lather, rinse, repeat>
 ```
 
-## TODO
+TODO
+----
 
-- [ ] Remove `valid` from parsing result, having a result means it's valid
-- [ ] Add more options to control output
-- [ ] Better parsing
-- [ ] Support more subtitles formats (at least SRT, maybe SSA/ASS)
-- [ ] Iron out segmenting bugs with real playlists
-- [ ] Refactor the mess that is the segmenter (yay, unit tests!)
-- [ ] Nicer interface, don't be parsing again and again
-- [ ] Do something to make the cli tool more accessible
-- [ ] Code coverage reporting
+-	[ ] Remove `valid` from parsing result, having a result means it's valid
+-	[ ] Add more options to control output
+-	[ ] Better parsing
+-	[ ] Support more subtitles formats (at least SRT, maybe SSA/ASS)
+-	[ ] Iron out segmenting bugs with real playlists
+-	[ ] Refactor the mess that is the segmenter (yay, unit tests!)
+-	[ ] Nicer interface, don't be parsing again and again
+-	[ ] Do something to make the cli tool more accessible
+-	[ ] Code coverage reporting
 
-## References
+References
+----------
 
-* Anne van Kesteren's [WebVTT validator](https://github.com/annevk/webvtt)
-    - [Live validator](https://quuz.org/webvtt/)
-* [WebVTT Ruby parser and segmenter](https://github.com/opencoconut/webvtt-ruby)
-* `mediasubtitlesegmenter` from Apple
-* [WebVTT: The Web Video Text Tracks Format](https://w3c.github.io/webvtt/)
+-	Anne van Kesteren's [WebVTT validator](https://github.com/annevk/webvtt)
+	-	[Live validator](https://quuz.org/webvtt/)
+-	[WebVTT Ruby parser and segmenter](https://github.com/opencoconut/webvtt-ruby)
+-	`mediasubtitlesegmenter` from Apple
+-	[WebVTT: The Web Video Text Tracks Format](https://w3c.github.io/webvtt/)

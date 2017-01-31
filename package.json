@@ -1,7 +1,7 @@
 {
-  "name": "node-webvtt",
-  "version": "1.0.3",
-  "description": "WebVTT parser and segmenter with HLS support",
+  "name": "node-webvtt-youtube",
+  "version": "1.0.0",
+  "description": "WebVTT parser and segmenter with HLS support(Youtube support)",
   "main": "index.js",
   "scripts": {
     "test": "./node_modules/eslint/bin/eslint.js ./ && ./node_modules/mocha/bin/mocha -R dot"
@@ -17,9 +17,12 @@
   ],
   "repository": {
     "type": "git",
-    "url": "git://github.com/ozinc/node-webvtt"
+    "url": "https://github.com/acorn421/node-webvtt-youtube"
   },
-  "author": "Ólafur Sverrir Kjartansson <kjarni@gmail.com>",
+  "author": {
+    "name": "Youngjoon Kim",
+    "email": "acorn421@gmail.com"
+  },
   "license": "MIT",
   "devDependencies": {
     "chai": "^3.4.1",
